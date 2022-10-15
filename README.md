@@ -10,7 +10,7 @@ Status: Under Development.
   No objects are allocated except for `LocalDateTime`.
 
 - **Code First.**  
-  We use code as configurations. You don't have to learn another format again.
+  We use code as configurations. You don't have to learn more than Java.
 
 ```java
     var consoleOnly=LoggerFactory.create(

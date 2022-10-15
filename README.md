@@ -31,3 +31,7 @@ Status: Under Development.
 
 - **Warranty**  
   lmao
+
+# Some meaningless screenshots
+
+![](https://upload.cc/i1/2022/10/15/fTCSFq.png)

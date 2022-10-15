@@ -1,0 +1,6 @@
+plugins {
+    id 'java'
+}
+
+group 'io.ib67'
+version '1.0-SNAPSHOT'

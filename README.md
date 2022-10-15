@@ -18,10 +18,10 @@ Status: Under Development.
         );
         var general=LoggerFactory.create(
         LoggerConfiguration.builder()
-        .policies(List.of(
-        new Policy(Prefixes.SIMPLE_PREFIX,new ConsoleAppender(),LogLevel.INFO),
-        new Policy(Prefixes.SIMPLE_PREFIX,new SimpleFileRollingAppender("logs/logs-%d.log",2),LogLevel.INFO)
-        ))
+            .policies(List.of(
+                 new Policy(Prefixes.SIMPLE_PREFIX,new ConsoleAppender(),LogLevel.INFO),
+                new Policy(Prefixes.SIMPLE_PREFIX,new SimpleFileRollingAppender("logs/logs-%d.log",2),LogLevel.INFO)
+            ))
         .build()
         );
 ```
@@ -31,7 +31,3 @@ Status: Under Development.
 
 - **Warranty**  
   lmao
-
-# Some meaningless screenshots
-
-![](https://upload.cc/i1/2022/10/15/fTCSFq.png)

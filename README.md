@@ -18,8 +18,14 @@ class Example {
     var loggerFactory = LoggerFactory.create(
             LoggerConfiguration.builder()
                     .policies(List.of(
-                            Policy.builder().output(new ConsoleAppender()).prefixProvider(Prefixes.SIMPLE_PREFIX).build(),
-                            Policy.builder().output(new SimpleFileRollingAppender("logs/logs-%d.log", 1)).minimalRequirement(LogLevel.WARN).build()
+                            Policy.builder()
+                                    .output(new ConsoleAppender())
+                                    .prefixProvider(Prefixes.SIMPLE_PREFIX)
+                                    .build(),
+                            Policy.builder()
+                                    .output(new SimpleFileRollingAppender("logs/logs-%d.log", 1)) // 2nd arg: roll size
+                                    .minimalRequirement(LogLevel.WARN)
+                                    .build()
                     ))
                     .build()
     );

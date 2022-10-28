@@ -7,27 +7,28 @@ Status: Under Development.
 # Features
 
 - **Low Allocation.**    
-  No objects are allocated except for `LocalDateTime`.
+  No objects are allocated(maybe) except for `LocalDateTime`.
 
 - **Code First.**  
   We use code as configurations. You don't have to learn more than Java.
 
 ```java
-    var consoleOnly=LoggerFactory.create(
-        LoggerConfiguration.builder().build()
-        );
-        var general=LoggerFactory.create(
-        LoggerConfiguration.builder()
-            .policies(List.of(
-                 new Policy(Prefixes.SIMPLE_PREFIX,new ConsoleAppender(),LogLevel.INFO),
-                new Policy(Prefixes.SIMPLE_PREFIX,new SimpleFileRollingAppender("logs/logs-%d.log",2),LogLevel.INFO)
-            ))
-        .build()
-        );
+class Example {
+  static {
+    var loggerFactory = LoggerFactory.create(
+            LoggerConfiguration.builder()
+                    .policies(List.of(
+                            Policy.builder().output(new ConsoleAppender()).prefixProvider(Prefixes.SIMPLE_PREFIX).build(),
+                            Policy.builder().output(new SimpleFileRollingAppender("logs/logs-%d.log", 1)).minimalRequirement(LogLevel.WARN).build()
+                    ))
+                    .build()
+    );
+  }
+}
 ```
 
 - **Tiny.**  
-  gol4j is small.
+  gol4j is very tiny.
 
 - **Warranty**  
   lmao

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class TestLog {
     @Test
     public void onTest() {
-        Logger logger = LoggerFactory.inMemory.getLogger("TestPlugin");
+        Logger logger = LoggerFactory.getDefaultFactory().getLogger("TestLogger");
         logger.info("Hello World");
         logger.warn("Hello World");
         logger.error("Hello World");

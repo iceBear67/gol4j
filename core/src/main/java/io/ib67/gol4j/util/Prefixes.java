@@ -60,7 +60,7 @@ public class Prefixes {
             a.flush("- ");
         };
         FILE_PREFIX = (out, lvl, name) -> {
-            var a = out.flush(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME)).flush(" [").flush(Thread.currentThread().getName())
+            out.flush(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME)).flush(" [").flush(Thread.currentThread().getName())
                     .flush("/").flush(lvl).flush("]").flush(" ").flush(name == null ? "" : name).flush(": ");
         };
     }

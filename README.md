@@ -36,5 +36,8 @@ class Example {
 - **Tiny.**  
   gol4j is very tiny.
 
+- **Java 9 Support**  
+  yes we have a `module-info`
+
 - **Warranty**  
   lmao

@@ -37,7 +37,7 @@ public class SimpleFileRollingAppender implements LoggerOutput {
             Path path;
             do {
                 fileNum++;
-                path = Path.of(String.format(pathPattern, fileNum));
+                path = Path.of(String.format(pathPattern, fileNum)); //todo enhanced format support
                 if (Files.notExists(path)) {
                     Files.createFile(path);
                 }
@@ -59,6 +59,7 @@ public class SimpleFileRollingAppender implements LoggerOutput {
             refreshWriter();
         }
         writer.append(msg);
+        writer.flush();
         return this;
     }
 }

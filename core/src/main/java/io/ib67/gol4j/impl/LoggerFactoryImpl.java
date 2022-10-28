@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class LoggerFactoryImpl implements LoggerFactory {
+    public static volatile LoggerFactory DEFAULT_FACTORY;
+
     private final LoggerConfiguration config;
     private final Logger anonymousLogger;
 

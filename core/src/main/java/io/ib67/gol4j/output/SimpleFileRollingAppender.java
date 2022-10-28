@@ -44,7 +44,8 @@ public class SimpleFileRollingAppender implements LoggerOutput {
                 if (!path.toFile().isFile()) throw new IOException(path + " is not a file");
                 sizeWritten.set(Files.size(path));
             } while (sizeWritten.get() >= sizeInBytes);
-            writer = new FileWriter(path.toFile());
+
+            writer = new FileWriter(path.toFile(),true);
             sizeWritten.set(0);
         } finally {
             lock.unlock();

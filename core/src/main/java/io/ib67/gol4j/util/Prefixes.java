@@ -6,12 +6,14 @@ import io.ib67.gol4j.process.PrefixProvider;
 import lombok.experimental.UtilityClass;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.EnumMap;
 import java.util.Map;
 
 @UtilityClass
 public class Prefixes {
     public static final PrefixProvider SIMPLE_PREFIX;
+    public static final PrefixProvider FILE_PREFIX;
     private static final Map<LogLevel, String> PREFIXES = new EnumMap<>(LogLevel.class);
 
     static {
@@ -56,6 +58,10 @@ public class Prefixes {
                 a.flush(renderName(name)).flush(" ");
             }
             a.flush("- ");
+        };
+        FILE_PREFIX = (out, lvl, name) -> {
+            var a = out.flush(LocalDateTime.now().format(DateTimeFormatter.ISO_TIME)).flush(" [").flush(Thread.currentThread().getName())
+                    .flush("/").flush(lvl).flush("]").flush(" ").flush(name == null ? "" : name).flush(": ");
         };
     }
 

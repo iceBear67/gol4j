@@ -23,7 +23,7 @@ public interface LoggerFactory {
                             LoggerConfiguration.builder()
                                     .policies(List.of(
                                             Policy.builder().output(new ConsoleAppender()).prefixProvider(Prefixes.SIMPLE_PREFIX).build(),
-                                            Policy.builder().output(new SimpleFileRollingAppender("logs/logs-%d.log", 1)).build()
+                                            Policy.builder().output(new SimpleFileRollingAppender("logs/logs-%d.log", 1)).prefixProvider(Prefixes.FILE_PREFIX).build()
                                     ))
                                     .build()
                     );

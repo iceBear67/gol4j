@@ -60,7 +60,18 @@ public class SimpleFileRollingAppender implements LoggerOutput {
             refreshWriter();
         }
         writer.append(msg);
-        writer.flush();
         return this;
+    }
+
+    @Override
+    public void beginLine() {
+
+    }
+
+    @SneakyThrows
+    @Override
+    public void endLine() {
+        flush("\n");
+        writer.flush();
     }
 }

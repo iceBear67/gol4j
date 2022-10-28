@@ -8,4 +8,14 @@ public class ConsoleAppender implements LoggerOutput {
         System.out.printf(String.valueOf(message));
         return this;
     }
+
+    @Override
+    public void beginLine() {
+
+    }
+
+    @Override
+    public void endLine() {
+        flush("\n");
+    }
 }

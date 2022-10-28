@@ -21,4 +21,14 @@ public class TypeAdaptOutput implements LoggerOutput {
         next.flush(msg);
         return this;
     }
+
+    @Override
+    public void beginLine() {
+        next.beginLine();
+    }
+
+    @Override
+    public void endLine() {
+        next.endLine();
+    }
 }

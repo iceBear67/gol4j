@@ -20,10 +20,11 @@ public class SimpleLogger implements Logger {
             if (lvl.ordinal() > policy.minimalRequirement().ordinal()) continue;
             if (policy.prefixProvider() != null) policy.prefixProvider().accept(policy.output(), lvl, name);
             var output = policy.output();
+            output.beginLine();
             for (Object arg : args) {
                 output.flush(String.valueOf(arg));
             }
-            output.flush("\n");
+            output.endLine();
         }
     }
 

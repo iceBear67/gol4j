@@ -10,4 +10,9 @@ import org.jetbrains.annotations.ApiStatus;
 @ApiStatus.AvailableSince("0.1.0")
 public interface LoggerOutput {
     LoggerOutput flush(Object message);
+
+    // for some large overhead outputs. (such as IO related)
+    void beginLine();
+
+    void endLine();
 }
